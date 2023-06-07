@@ -524,6 +524,7 @@
       args:
         warn: false
       changed_when: false
+      when: ansible_os_family == "RedHat"
       register: gpg_fingerprints
       check_mode: false
       tags:
