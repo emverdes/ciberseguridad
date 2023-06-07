@@ -31,6 +31,12 @@
   vars:
     var_system_crypto_policy: !!str DEFAULT
   tasks:
+    - name: 'Set PermitRootLogin to no'
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^PermitRootLogin'
+        line: PermitRootLogin no
+
     - name: 'Set fact: Package manager reinstall command (dnf)'
       set_fact:
         package_manager_reinstall_cmd: dnf reinstall -y
